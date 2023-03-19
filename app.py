@@ -1,8 +1,15 @@
 from flask import Flask
+import random
 
 app = Flask(__name__)
-@app.route('/')
-def hello_world():
-    return 'hello test'
-if __name__ == '__main__':
-    app.run()
+
+jokes = [
+    "Relationship status? I'll leave the relations to the database.",
+    "How do you get the code for the bank vault? You checkout their branch.",
+    "Why did the security conscious engineer refuse to pay their dinner bill? Because they could not verify the checksum.",
+    "How many Prolog programmers does it take to change a lightbulb? Yes."
+]
+@app.get('/')
+def tell_a_joke():
+    joke = random.choice(jokes)
+    return f"<p>{joke}</p>"
