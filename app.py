@@ -10,4 +10,3 @@ app = Flask(__name__)
 def tell_a_joke():
     joke = random.choice(jokes)
     return flask.render_template('joke.html', joke_text=joke)
-    #return f"<p>{joke}</p>"
